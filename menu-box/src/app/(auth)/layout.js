@@ -1,13 +1,9 @@
-"use client"; // Esta diretiva é importante se esta utilidade for usada em Client Components.
 
-import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
 
-/**
- * Combina e condicionalmente aplica classes CSS, resolvendo conflitos do Tailwind CSS.
- * @param {...any} inputs - Vários argumentos que podem ser strings de classe, objetos, ou arrays.
- * @returns {string} Uma string de classe CSS combinada.
- */
-export function cn(...inputs) {
-  return twMerge(clsx(inputs));
+export default function AuthLayout({ children }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-menubox-cyan-light/20 via-background to-menubox-gray-light/30 p-4">
+      {children}
+    </div>
+  );
 }
