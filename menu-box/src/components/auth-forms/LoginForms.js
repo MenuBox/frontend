@@ -1,5 +1,5 @@
 // components/LoginForm.js
-"use client"; // Esta diretiva é crucial para componentes que usam hooks de React e interatividade no cliente.
+"use client";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -10,24 +10,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-// --- Schema Zod ---
-// Definimos o schema normalmente. O Zod funciona perfeitamente em JavaScript.
 const loginSchema = z.object({
   email: z.string().email("Email inválido"),
   password: z.string().min(6, "A senha deve ter pelo menos 6 caracteres"),
 });
 
-// Em JavaScript, não usamos `type` ou `interface`.
-// As props serão tipadas implicitamente ou documentadas via JSDoc se você quiser.
-// Para React Hook Form, o tipo de dados do formulário será inferido em tempo de execução
-// ou você precisaria usar um JSDoc complexo para anotação.
-// Para este exemplo, removemos as anotações de tipo.
-
 export function LoginForm({ onSwitchToRegister, isAnimating }) {
   const [isLoading, setIsLoading] = useState(false);
 
-  // Aqui, `useForm` inferirá o tipo de `data` no `onSubmit`
-  // com base no `zodResolver(loginSchema)`.
   const {
     register,
     handleSubmit,
@@ -38,13 +28,8 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
 
   const onSubmit = async (data) => {
     setIsLoading(true);
-    // Simular chamada de API
     await new Promise(resolve => setTimeout(resolve, 1000));
     console.log("Login data:", data);
-    // Você pode adicionar lógica de redirecionamento aqui, por exemplo:
-    // import { useRouter } from 'next/navigation';
-    // const router = useRouter();
-    // router.push('/dashboard');
     setIsLoading(false);
   };
 
@@ -53,10 +38,12 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
       <Card className="w-full border-0 shadow-none bg-transparent">
         <CardHeader className="space-y-1 text-center pb-8">
           <CardTitle className="text-3xl font-bold">
-            <span className="text-primary">Menu</span>
-            <span className="text-menubox-gray">Box</span>
+            {/* Alteração: Cores do título */}
+            <span className="text-blue-600 dark:text-blue-400">Menu</span>
+            <span className="text-slate-700 dark:text-slate-300">Box</span>
           </CardTitle>
-          <CardDescription className="text-muted-foreground">
+          {/* Alteração: Cor da descrição */}
+          <CardDescription className="text-slate-500 dark:text-slate-400">
             Entre na sua conta para continuar
           </CardDescription>
         </CardHeader>
@@ -72,7 +59,8 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
                 className="h-12"
               />
               {errors.email && (
-                <p className="text-sm text-destructive">{errors.email.message}</p>
+                // Alteração: Cor do texto de erro
+                <p className="text-sm text-red-500 dark:text-red-400">{errors.email.message}</p>
               )}
             </div>
             
@@ -86,13 +74,15 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
                 className="h-12"
               />
               {errors.password && (
-                <p className="text-sm text-destructive">{errors.password.message}</p>
+                // Alteração: Cor do texto de erro
+                <p className="text-sm text-red-500 dark:text-red-400">{errors.password.message}</p>
               )}
             </div>
 
             <Button
               type="submit"
-              className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              // Alteração: Cores do botão principal
+              className="w-full h-12 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold"
               disabled={isLoading}
             >
               {isLoading ? "Entrando..." : "Entrar"}
@@ -102,19 +92,22 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
           <div className="text-center">
             <button
               type="button"
-              className="text-sm text-primary hover:underline"
+              // Alteração: Cor do link
+              className="text-sm text-blue-600 hover:underline dark:text-blue-400"
             >
               Esqueceu a senha?
             </button>
           </div>
 
           <div className="text-center pt-4">
-            <p className="text-sm text-muted-foreground">
+            {/* Alteração: Cor do texto secundário */}
+            <p className="text-sm text-slate-500 dark:text-slate-400">
               Não tem uma conta?{" "}
               <button
                 type="button"
                 onClick={onSwitchToRegister}
-                className="text-primary hover:underline font-medium"
+                // Alteração: Cor do link de cadastro
+                className="text-blue-600 hover:underline dark:text-blue-400 font-medium"
                 disabled={isAnimating}
               >
                 Criar uma conta
