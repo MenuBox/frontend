@@ -1,24 +1,17 @@
 /* app/globals.css */
 
-/* 1. Importações do Tailwind CSS v4: Novas diretivas */
 @import "tailwindcss/preflight"; /* Substitui @tailwind base */
 @import "tailwindcss/utilities";  /* Substitui @tailwind components e @tailwind utilities */
 
-/* 2. Camada base para suas variáveis CSS personalizadas e do Shadcn/ui */
 @layer base {
   :root {
-    /* Cores do MenuBox (exemplo de ciano claro para primary, cinza escuro para foreground) */
-    --primary: 184 94% 47%; /* Exemplo HSL para ciano claro */
-    --primary-foreground: 210 20% 98%; /* Cor de texto para o primary */
-
-    /* Suas cores customizadas, agora como variáveis CSS, se necessário */
-    --menubox-cyan-light-hsl: 195 100% 85%; /* HSL para ADD8E6 */
-    --menubox-gray-light-hsl: 0 0% 82.7%;  /* HSL para D3D3D3 */
-    --menubox-gray-hsl: 0 0% 29%; /* HSL para 4A4A4A */
-
-    /* Variáveis do Shadcn/ui (essenciais para os componentes funcionarem) */
-    --background: 0 0% 100%; /* Branco para o modo claro */
-    --foreground: 222.2 84% 4.9%; /* Preto/quase preto para o modo claro */
+    --primary: 184 94% 47%;
+    --primary-foreground: 210 20% 98%;
+    --menubox-cyan-light-hsl: 195 100% 85%;
+    --menubox-gray-light-hsl: 0 0% 82.7%;
+    --menubox-gray-hsl: 0 0% 29%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
@@ -34,19 +27,18 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem; /* Raio de borda padrão para componentes do Shadcn/ui */
+    --radius: 0.5rem;
   }
 
-  /* Modo Escuro: Define as variáveis CSS para o tema escuro */
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: 222.2 84% 4.9%; /* Quase preto para o modo escuro */
-      --foreground: 210 20% 98%; /* Branco/quase branco para o modo escuro */
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 20% 98%;
       --card: 222.2 84% 4.9%;
       --card-foreground: 210 20% 98%;
-      --popover: 222.2 84% 4.9%;
+      --popover: 0 0% 100%;
       --popover-foreground: 210 20% 98%;
-      --primary: 184 94% 47%; /* Mantenha o ciano para o primary no dark mode */
+      --primary: 184 94% 47%;
       --primary-foreground: 222.2 47.4% 11.2%;
       --secondary: 217.2 32.6% 17.5%;
       --secondary-foreground: 210 20% 98%;
@@ -63,22 +55,8 @@
   }
 }
 
-/* 3. Estilos globais para elementos HTML (sem @apply no CSS) */
-/* Você deve aplicar essas classes diretamente no HTML/JSX, ou usar utility functions do PostCSS */
 body {
-  background: hsl(var(--background)); /* Use as variáveis CSS diretamente */
-  color: hsl(var(--foreground));      /* Use as variáveis CSS diretamente */
-  font-family: Arial, Helvetica, sans-serif; /* Continua igual */
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Para o seletor universal, se você realmente precisa de 'border-border' globalmente,
-   terá que aplicar a classe 'border-border' a um elemento raiz como o body,
-   ou definir a propriedade 'border-color' diretamente aqui.
-   A `@apply` não funciona mais no CSS.
-*/
-/* * {
-  border-color: hsl(var(--border));
-} */
-
-/* No entanto, é mais comum adicionar as classes Tailwind diretamente ao body no layout.js */
-/* Ex: <body className="bg-background text-foreground border-border"> */
