@@ -12,7 +12,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      {/* Aplica as classes Tailwind para background e foreground ao body */}
       <body className={`${inter.className} bg-background text-foreground`}>
         {children}
       </body>
