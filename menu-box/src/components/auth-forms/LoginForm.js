@@ -1,4 +1,4 @@
-// components/LoginForm.js
+// src/components/auth-forms/LoginForms.js
 "use client";
 
 import { useState } from "react";
@@ -38,12 +38,11 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
       <Card className="w-full border-0 shadow-none bg-transparent">
         <CardHeader className="space-y-1 text-center pb-8">
           <CardTitle className="text-3xl font-bold">
-            {/* Alteração: Cores do título */}
+            {/* CORRIGIDO */}
             <span className="text-blue-600 dark:text-blue-400">Menu</span>
             <span className="text-slate-700 dark:text-slate-300">Box</span>
           </CardTitle>
-          {/* Alteração: Cor da descrição */}
-          <CardDescription className="text-slate-500 dark:text-slate-400">
+          <CardDescription className="text-slate-500 dark:text-slate-400"> {/* CORRIGIDO */}
             Entre na sua conta para continuar
           </CardDescription>
         </CardHeader>
@@ -59,8 +58,7 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
                 className="h-12"
               />
               {errors.email && (
-                // Alteração: Cor do texto de erro
-                <p className="text-sm text-red-500 dark:text-red-400">{errors.email.message}</p>
+                <p className="text-sm text-red-500 dark:text-red-400">{errors.email.message}</p> /* CORRIGIDO */
               )}
             </div>
             
@@ -74,15 +72,13 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
                 className="h-12"
               />
               {errors.password && (
-                // Alteração: Cor do texto de erro
-                <p className="text-sm text-red-500 dark:text-red-400">{errors.password.message}</p>
+                <p className="text-sm text-red-500 dark:text-red-400">{errors.password.message}</p> /* CORRIGIDO */
               )}
             </div>
 
             <Button
               type="submit"
-              // Alteração: Cores do botão principal
-              className="w-full h-12 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold"
+              className="w-full h-12" // Classes de cor já vêm da variante "default" do button.js
               disabled={isLoading}
             >
               {isLoading ? "Entrando..." : "Entrar"}
@@ -92,22 +88,19 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
           <div className="text-center">
             <button
               type="button"
-              // Alteração: Cor do link
-              className="text-sm text-blue-600 hover:underline dark:text-blue-400"
+              className="text-sm text-blue-600 hover:underline dark:text-blue-400" // CORRIGIDO
             >
               Esqueceu a senha?
             </button>
           </div>
 
           <div className="text-center pt-4">
-            {/* Alteração: Cor do texto secundário */}
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-slate-500 dark:text-slate-400"> {/* CORRIGIDO */}
               Não tem uma conta?{" "}
               <button
                 type="button"
                 onClick={onSwitchToRegister}
-                // Alteração: Cor do link de cadastro
-                className="text-blue-600 hover:underline dark:text-blue-400 font-medium"
+                className="font-medium text-blue-600 hover:underline dark:text-blue-400" // CORRIGIDO
                 disabled={isAnimating}
               >
                 Criar uma conta

@@ -12,10 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      {/* Alterações: */}
-      {/* 1. `bg-background` -> `bg-white dark:bg-slate-950` */}
-      {/* 2. `text-foreground` -> `text-slate-900 dark:text-slate-50` */}
-      <body className={`${inter.className} bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50`}>
+      {/*
+        CORREÇÃO FINAL:
+        Trocamos 'bg-background' e 'text-foreground' por classes padrão do Tailwind.
+        Isso define um fundo branco com texto escuro (modo claro) e um fundo
+        quase preto com texto claro (modo escuro) para toda a aplicação.
+      */}
+      <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50`}>
         {children}
       </body>
     </html>
