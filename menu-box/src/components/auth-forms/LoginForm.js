@@ -1,4 +1,3 @@
-// src/components/auth-forms/LoginForms.js
 "use client";
 
 import { useState } from "react";
@@ -38,11 +37,10 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
       <Card className="w-full border-0 shadow-none bg-transparent">
         <CardHeader className="space-y-1 text-center pb-8">
           <CardTitle className="text-3xl font-bold">
-            {/* CORRIGIDO */}
-            <span className="text-blue-600 dark:text-blue-400">Menu</span>
-            <span className="text-slate-700 dark:text-slate-300">Box</span>
+            <span className="text-blue-600 ">Menu</span>
+            <span className="text-slate-700 ">Box</span>
           </CardTitle>
-          <CardDescription className="text-slate-500 dark:text-slate-400"> {/* CORRIGIDO */}
+          <CardDescription className="text-slate-500 "> {/* CORRIGIDO */}
             Entre na sua conta para continuar
           </CardDescription>
         </CardHeader>
@@ -58,7 +56,7 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
                 className="h-12"
               />
               {errors.email && (
-                <p className="text-sm text-red-500 dark:text-red-400">{errors.email.message}</p> /* CORRIGIDO */
+                <p className="text-sm text-red-500 ">{errors.email.message}</p> /* CORRIGIDO */
               )}
             </div>
             
@@ -72,7 +70,7 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
                 className="h-12"
               />
               {errors.password && (
-                <p className="text-sm text-red-500 dark:text-red-400">{errors.password.message}</p> /* CORRIGIDO */
+                <p className="text-sm text-red-500 ">{errors.password.message}</p> /* CORRIGIDO */
               )}
             </div>
 
@@ -88,19 +86,19 @@ export function LoginForm({ onSwitchToRegister, isAnimating }) {
           <div className="text-center">
             <button
               type="button"
-              className="text-sm text-blue-600 hover:underline dark:text-blue-400" // CORRIGIDO
+              className="text-sm text-blue-600 hover:underline " // CORRIGIDO
             >
               Esqueceu a senha?
             </button>
           </div>
 
           <div className="text-center pt-4">
-            <p className="text-sm text-slate-500 dark:text-slate-400"> {/* CORRIGIDO */}
+            <p className="text-sm text-slate-500 "> {/* CORRIGIDO */}
               Não tem uma conta?{" "}
               <button
                 type="button"
                 onClick={onSwitchToRegister}
-                className="font-medium text-blue-600 hover:underline dark:text-blue-400" // CORRIGIDO
+                className="font-medium text-blue-600 hover:underline " // CORRIGIDO
                 disabled={isAnimating}
               >
                 Criar uma conta

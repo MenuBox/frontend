@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 // Corrigindo os nomes para o padrão singular, caso ainda não tenha feito
-import { LoginForm } from '@/components/auth-forms/LoginForm'; 
+import { LoginForm } from '@/components/auth-forms/LoginForm';
 import { RegisterForm } from '@/components/auth-forms/RegisterForm';
 import { cn } from '@/lib/utils';
 
@@ -19,9 +19,7 @@ export default function AuthPage() {
     }, 500);
   };
 
-  // CORREÇÃO: Removemos o <div> de tela cheia que estava duplicado.
-  // Agora, a página retorna APENAS o card de autenticação,
-  // que será centralizado pelo `layout.js`.
+
   return (
     <div className="relative w-full max-w-md h-[550px] overflow-hidden rounded-lg shadow-xl bg-white dark:bg-slate-950 flex justify-center items-center">
       
